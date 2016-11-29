@@ -1,0 +1,62 @@
+/* Fonts */
+@font-face {
+	font-family: 'Rubik';
+	src: url('fonts/Rubik-Bold.ttf') format('truetype');
+    font-style: normal;
+}
+
+body {
+	/* Width of the content */
+	--container-width: 800px; 
+	/* Pct width of .friend element, .name width is derived */
+	--friend-pct-width: 0.5;
+	
+	height: 100vh;
+	width: 100%;
+	max-width: var(--container-width);
+	position: relative;	
+	margin: 0 auto;
+}
+
+img {
+	width: 100%;	
+	position: absolute;
+}
+
+.wrapper {
+	width: 100%;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.friend {
+	width: calc(var(--friend-pct-width) * 100%);
+	height: calc(var(--friend-pct-width) * var(--container-width));
+	position: relative;
+}
+
+.friend__face,
+.friend__props {
+	position: absolute;
+	width: 100%;
+}
+
+.friend__face img {
+	-webkit-clip-path: ellipse(120px 150px at center);
+}
+
+.name {
+	--name-pct-width: calc(1 - var(--friend-pct-width));
+	width: calc(var(--name-pct-width) * 100%);
+	position: absolute;
+	top: 50%;
+	right: 0px;
+	transform: translateY(-50%);
+
+	font-family: 'Rubik', sans-serif;
+	text-transform: capitalize;
+	font-size: 3em;	
+	color: white;
+	text-shadow: 0px 1px 2px rgba(0,0,0,.3);
+}
